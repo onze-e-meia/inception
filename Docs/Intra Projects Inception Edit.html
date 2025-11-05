@@ -30,19 +30,19 @@
       "id": 160520,
       "url": "https://profile.intra.42.fr/users/tforster"
     };
-  
+
     this._consumer_address = 'wss://profile.intra.42.fr/cable';
-  
+
   }).call(this);
 </script>
 <script>
   (function() {
     this._environment = "production";
-  
+
     this._git_commit = "";
-  
+
     this._release = this._git_commit;
-  
+
   }).call(this);
 </script>
 
@@ -53,9 +53,9 @@
 <script>
   (function() {
     this._notifCount = 3;
-  
+
     this._flashes = [];
-  
+
   }).call(this);
 </script>
 
@@ -193,7 +193,7 @@ Scale for project
 <!-- -------- La liste des personnes du groupe ------- -->
 <div class="team-users-list d-flex justify-content-center">
 <div class="team-user-item">
-<div class="bg-image-item rounded square-s" data-placement="bottom" data-toggle="tooltip" style="background-image: url(https://cdn.intra.42.fr/users/852fe43c2bdd6ef48dfdbcd176f44c16/cfelipe-.jpg)" title="" data-original-title="cfelipe-"></div>
+<div class="bg-image-item rounded square-s" data-placement="bottom" data-toggle="tooltip" style="background-image: url(https://cdn.intra.42.fr/users/852fe43c2bdd6ef48dfdbcd176f44c16/tforster.jpg)" title="" data-original-title="tforster"></div>
 <div class="team-user-item-actions">
 <div class="team-user-role rounded bprima"></div>
 <span class="iconf-star-1 leader-user" data-placement="bottom" data-toggle="tooltip" title="" data-original-title="Team leader"></span>
@@ -203,8 +203,8 @@ Scale for project
 <small class="full-width text-muted">Git repository</small>
 <div class="container-inner-item project-repo pt-0 mt-0">
 <div class="input-group">
-<input class="repo-url form-control" disabled="disabled" type="text" value="git@vogsphere-v2.42sp.org.br:vogsphere/intra-uuid-2cb3989e-28ca-4bdf-b7aa-617321f1f03c-6053326-cfelipe-">
-<span class="copy input-group-addon" data-clipboard-text="git@vogsphere-v2.42sp.org.br:vogsphere/intra-uuid-2cb3989e-28ca-4bdf-b7aa-617321f1f03c-6053326-cfelipe-">
+<input class="repo-url form-control" disabled="disabled" type="text" value="git@vogsphere-v2.42sp.org.br:vogsphere/intra-uuid-2cb3989e-28ca-4bdf-b7aa-617321f1f03c-6053326-tforster">
+<span class="copy input-group-addon" data-clipboard-text="git@vogsphere-v2.42sp.org.br:vogsphere/intra-uuid-2cb3989e-28ca-4bdf-b7aa-617321f1f03c-6053326-tforster">
 <span class="icon-paste"></span>
 </span>
 </div>
@@ -246,7 +246,7 @@ Please adhere to the following rules:<br><br>- Remain polite, courteous, respect
 <section class="scale-section-item dancer from-down" id="section-143646">
 <div class="section-header">
 <h3 class="font-weight-bold mb-1">Preliminaries</h3>
-<p class="font-italic">If cheating is suspected, the evaluation stops 
+<p class="font-italic">If cheating is suspected, the evaluation stops
 here. Use the "Cheat" flag to report this. Make this decision calmly and
  wisely, and please, use this button with caution.</p>
 </div>
@@ -258,11 +258,11 @@ and/or also the use of Docker secrets.
 If any credentials or API keys are available
 in the Git repository and outside of secrets files created during the
 evaluation, the evaluation stops and the mark is 0.</li>
-<li>The defense can only occur if the evaluated student or group is present. 
+<li>The defense can only occur if the evaluated student or group is present.
 This way, everyone learns by sharing knowledge with one another.</li>
-<li>If no work has been submitted (or wrong files, wrong directory, or 
+<li>If no work has been submitted (or wrong files, wrong directory, or
 wrong filenames), the grade is 0, and the evaluation process ends.</li>
-<li>For this project, you must clone their Git repository on their 
+<li>For this project, you must clone their Git repository on their
 workstation.</li>
 </ul>
 
@@ -293,35 +293,35 @@ No
 <h4 class="scale-question-name">General instructions</h4>
 <p class="scale-section-guidelines">
 </p><ul>
-<li>Throughout the evaluation process, if you do not know how to check a 
+<li>Throughout the evaluation process, if you do not know how to check a
 requirement, or verify something, the evaluated student must assist you. </li>
-<li>Ensure that all files required to configure the application are 
-located within a 'srcs' folder. The 'srcs' folder must be located at the 
+<li>Ensure that all files required to configure the application are
+located within a 'srcs' folder. The 'srcs' folder must be located at the
 root of the repository.</li>
 <li>Ensure that a Makefile is located at the root of the repository.</li>
 <li>Before beginning the evaluation, execute this command in the terminal:
 "docker stop $(docker ps -qa); docker rm $(docker ps -qa);
 docker rmi -f $(docker images -qa); docker volume rm $(docker volume ls -q);
 docker network rm $(docker network ls -q) 2&gt;/dev/null"</li>
-<li>Read the docker-compose.yml file. There must not be 'network: host' 
+<li>Read the docker-compose.yml file. There must not be 'network: host'
 or 'links:' in it. Otherwise, the evaluation ends immediately.</li>
 <li>Read the docker-compose.yml file. It must contain 'network(s)'.
 Otherwise, the evaluation ends immediately.</li>
-<li>Examine the Makefile and all the scripts in which Docker is used. 
-None of them must contain '--link'. Otherwise, the evaluation 
+<li>Examine the Makefile and all the scripts in which Docker is used.
+None of them must contain '--link'. Otherwise, the evaluation
 ends immediately.</li>
 <li>Examine the Dockerfiles. None of them must contain 'tail -f' or any command running in
-the background in the ENTRYPOINT section. If there is, the evaluation 
-ends immediately. The same applies if 'bash' or 'sh' are used but not for running a 
+the background in the ENTRYPOINT section. If there is, the evaluation
+ends immediately. The same applies if 'bash' or 'sh' are used but not for running a
 script (e.g., 'nginx &amp; bash' or 'bash').</li>
-<li>Examine the Dockerfiles. Containers must be built from either the 
+<li>Examine the Dockerfiles. Containers must be built from either the
 penultimate stable version of Alpine or Debian.</li>
-<li>If the entrypoint is a script (e.g., ENTRYPOINT ["sh", "my_entrypoint.sh"], 
+<li>If the entrypoint is a script (e.g., ENTRYPOINT ["sh", "my_entrypoint.sh"],
 ENTRYPOINT ["bash", "my_entrypoint.sh"]), ensure it runs no program<br>
 in the background (e.g., 'nginx &amp; bash').</li>
-<li>Examine all the scripts in the repository. Ensure that none of them runs 
-an infinite loop. 
-The following are examples of prohibited commands: 
+<li>Examine all the scripts in the repository. Ensure that none of them runs
+an infinite loop.
+The following are examples of prohibited commands:
 'sleep infinity', 'tail -f /dev/null', 'tail -f /dev/random'.</li>
 <li>Run the Makefile.</li>
 </ul>
@@ -348,7 +348,7 @@ No
 <div class="section-header">
 <hr>
 <h3 class="font-weight-bold mb-1">Mandatory part</h3>
-<p class="font-italic">This project involves setting up a small infrastructure composed of 
+<p class="font-italic">This project involves setting up a small infrastructure composed of
 different services using docker compose.
 Ensure that all of the following points are correct.
 </p>
@@ -360,7 +360,7 @@ Ensure that all of the following points are correct.
 
 <ul>
 <li>How Docker and docker compose work.</li>
-<li>The difference between a Docker image used with docker compose and 
+<li>The difference between a Docker image used with docker compose and
 without docker compose.</li>
 <li>The benefit of Docker compared to virtual machines (VMs).</li>
 <li>The relevance of the directory structure required for this project
@@ -388,12 +388,12 @@ No
 <h4 class="scale-question-name">Simple setup</h4>
 <p class="scale-section-guidelines">
 </p><ul>
-<li>Ensure that NGINX is accessible only through port 443. Once completed, open 
+<li>Ensure that NGINX is accessible only through port 443. Once completed, open
 the page.</li>
 <li>Ensure that an SSL/TLS certificate is being used.</li>
 <li>Ensure that the WordPress website is properly installed and configured;
-you should not see the WordPress installation page. To access it, 
-open <a href="https://login.42.fr/">https://login.42.fr</a> in your browser, where 'login' is the username of 
+you should not see the WordPress installation page. To access it,
+open <a href="https://login.42.fr/">https://login.42.fr</a> in your browser, where 'login' is the username of
 the evaluated student. You should not be able to access the site via<br>
 <a href="http://login.42.fr/">http://login.42.fr</a>.
 If something does not work as expected, the evaluation process ends immediately.</li>
@@ -420,20 +420,20 @@ No
 <p class="scale-section-guidelines">
 </p><ul>
 <li>Begin by checking the Dockerfiles. There must be one Dockerfile for each
-service. Ensure that the Dockerfiles are not empty. If this is not 
-the case or if a Dockerfile is missing, the evaluation process ends 
+service. Ensure that the Dockerfiles are not empty. If this is not
+the case or if a Dockerfile is missing, the evaluation process ends
 immediately.</li>
-<li>Ensure that the evaluated student has written their own Dockerfiles and 
+<li>Ensure that the evaluated student has written their own Dockerfiles and
 built their own Docker images. It is prohibited to use pre-made ones
 or services such as DockerHub.</li>
-<li>Ensure that each container is built from the penultimate stable version 
-of Alpine or Debian. If a Dockerfile does not start 
-with 'FROM alpine:X.X.X', 'FROM debian:XXXXX', or any other local image, 
+<li>Ensure that each container is built from the penultimate stable version
+of Alpine or Debian. If a Dockerfile does not start
+with 'FROM alpine:X.X.X', 'FROM debian:XXXXX', or any other local image,
 the evaluation process ends immediately.</li>
-<li>Docker images must have the same name as their corresponding 
+<li>Docker images must have the same name as their corresponding
 service. Otherwise, the evaluation process ends immediately.</li>
-<li>Ensure that the Makefile sets up all the services via docker compose. 
-This means that the containers must be built using docker compose 
+<li>Ensure that the Makefile sets up all the services via docker compose.
+This means that the containers must be built using docker compose
 and that no crashes occur. Otherwise, the evaluation process ends.</li>
 </ul>
 
@@ -457,12 +457,12 @@ No
 <h4 class="scale-question-name">Docker Network</h4>
 <p class="scale-section-guidelines">
 </p><ul>
-<li>Ensure that docker-network is used by checking the docker-compose.yml 
-file. Then, run the 'docker network ls' command to verify that a 
+<li>Ensure that docker-network is used by checking the docker-compose.yml
+file. Then, run the 'docker network ls' command to verify that a
 network is visible.</li>
-<li>The evaluated student must provide a simple explanation of 
+<li>The evaluated student must provide a simple explanation of
 docker-network.
-If any of the above points is not correct, the evaluation process ends 
+If any of the above points is not correct, the evaluation process ends
 immediately.</li>
 </ul>
 
@@ -489,15 +489,15 @@ No
 <li>Ensure that there is a Dockerfile.</li>
 <li>Using the 'docker compose ps' command, ensure that the container is
 created (using the flag '-p' is permitted if necessary).</li>
-<li>Attempt to access the service via HTTP (port 80) and verify that you 
+<li>Attempt to access the service via HTTP (port 80) and verify that you
 cannot connect.</li>
-<li>Open <a href="https://login.42.fr/">https://login.42.fr/</a> in your browser, where login is the login 
-of the evaluated student. The displayed page must be the configured 
+<li>Open <a href="https://login.42.fr/">https://login.42.fr/</a> in your browser, where login is the login
+of the evaluated student. The displayed page must be the configured
 WordPress website (you should not see the WordPress installation page).</li>
-<li>The use of a TLS v1.2/v1.3 certificate is mandatory and must be 
-demonstrated. The SSL/TLS certificate does not have to be recognized. 
+<li>The use of a TLS v1.2/v1.3 certificate is mandatory and must be
+demonstrated. The SSL/TLS certificate does not have to be recognized.
 A warning for a self-signed certificate may appear.
-If any of the above points is not clearly explained and correct, the 
+If any of the above points is not clearly explained and correct, the
 evaluation process ends immediately.</li>
 </ul>
 
@@ -523,20 +523,20 @@ No
 </p><ul>
 <li>Ensure that there is a Dockerfile.</li>
 <li>Ensure that NGINX is not included in the Dockerfile.</li>
-<li>Using the 'docker compose ps' command, ensure that the container was 
+<li>Using the 'docker compose ps' command, ensure that the container was
 created (using the flag '-p' is authorized if necessary).</li>
 <li>Ensure that a volume is present. To do so:
-Run the command 'docker volume ls' then 'docker volume inspect 
-&lt;volume name&gt;'. Verify that the standard output contains 
-the path '/home/login/data/', where 'login' is the username of the evaluated 
+Run the command 'docker volume ls' then 'docker volume inspect
+&lt;volume name&gt;'. Verify that the standard output contains
+the path '/home/login/data/', where 'login' is the username of the evaluated
 student.</li>
 <li>Ensure that you can add a comment using the available WordPress account.</li>
-<li>Sign in with the administrator account to access the administration 
-dashboard. The administrator username must not include 'admin' or 'Admin' 
+<li>Sign in with the administrator account to access the administration
+dashboard. The administrator username must not include 'admin' or 'Admin'
 (e.g., admin, administrator, Admin-login, admin-123, etc.).</li>
-<li>From the administration dashboard, edit a page. Verify on the website 
+<li>From the administration dashboard, edit a page. Verify on the website
 that the page is updated.
-If any of the above points is not correct, the evaluation process ends 
+If any of the above points is not correct, the evaluation process ends
 now.</li>
 </ul>
 
@@ -562,16 +562,16 @@ No
 </p><ul>
 <li>Ensure that there is a Dockerfile.</li>
 <li>Ensure that there is no NGINX in the Dockerfile.</li>
-<li>Using the 'docker compose ps' command, ensure that the container was 
+<li>Using the 'docker compose ps' command, ensure that the container was
 created (using the flag '-p' is authorized if necessary).</li>
 <li>Ensure that there is a Volume. To do so:
-Run the command 'docker volume ls' then 'docker volume inspect 
-&lt;volume name&gt;'. Verify that the result in the standard output contains 
-the path '/home/login/data/', where login is the login of the evaluated 
+Run the command 'docker volume ls' then 'docker volume inspect
+&lt;volume name&gt;'. Verify that the result in the standard output contains
+the path '/home/login/data/', where login is the login of the evaluated
 student.</li>
-<li>The evaluated student must be able to explain how to log in to 
+<li>The evaluated student must be able to explain how to log in to
 the database. Ensure that the database is not empty.
-If any of the above points is not correct, the evaluation process ends 
+If any of the above points is not correct, the evaluation process ends
 now.</li>
 </ul>
 
@@ -595,12 +595,12 @@ No
 <h4 class="scale-question-name">Persistence!</h4>
 <p class="scale-section-guidelines">
 </p><ul>
-<li>This part is straightforward. You must reboot the virtual 
-machine. Once it has restarted, launch docker compose again. Then, 
-verify that everything is functional and that both WordPress and 
-MariaDB are configured. The changes you made previously to the 
+<li>This part is straightforward. You must reboot the virtual
+machine. Once it has restarted, launch docker compose again. Then,
+verify that everything is functional and that both WordPress and
+MariaDB are configured. The changes you made previously to the
 WordPress website should still be present.
-If any of the above points is not correct, the evaluation process ends 
+If any of the above points is not correct, the evaluation process ends
 now.</li>
 </ul>
 
@@ -627,8 +627,8 @@ No
 <hr>
 <h3 class="font-weight-bold mb-1">Bonus</h3>
 <p class="font-italic">Evaluate the bonus part only if the mandatory part has been completed
-entirely and perfectly, and error management handles unexpected 
-or improper usage. If all mandatory points were not passed during the 
+entirely and perfectly, and error management handles unexpected
+or improper usage. If all mandatory points were not passed during the
 defense, bonus points must be completely ignored.
 </p>
 </div>
@@ -765,7 +765,7 @@ x
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  
+
   gtag('config', 'G-BJ34XNRJCV');
 </script>
 

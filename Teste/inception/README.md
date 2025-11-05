@@ -54,7 +54,7 @@ inception/
 Add the following line to `/etc/hosts` (requires sudo):
 
 ```bash
-127.0.0.1 cfelipe-.42.fr
+127.0.0.1 tforster.42.fr
 ```
 
 ### 2. Build and Start
@@ -72,7 +72,7 @@ make up       # Start containers
 
 Open your browser and navigate to:
 ```
-https://cfelipe-.42.fr:4443
+https://tforster.42.fr:4443
 ```
 
 **Note**: You'll see a security warning due to self-signed certificate. This is expected for development.
@@ -153,7 +153,7 @@ The project uses **port 4443** instead of 443 because:
 For production deployment with proper privileges, change in `docker-compose.yml`:
 ```yaml
 ports:
-  - "443:443"  # Instead of "4443:443"
+  - "443:443"  # Instead of ""
 ```
 
 ### Data Persistence
@@ -216,7 +216,7 @@ make
 ## Testing Checklist
 
 - [ ] All three containers start successfully
-- [ ] WordPress accessible at https://cfelipe-.42.fr:4443
+- [ ] WordPress accessible at https://tforster.42.fr:4443
 - [ ] Can log in with admin user (wpmaster)
 - [ ] Can log in with regular user (content_editor)
 - [ ] Can create and publish posts
@@ -250,4 +250,4 @@ This project is part of the 42 School curriculum.
 
 ## Author
 
-cfelipe-
+tforster

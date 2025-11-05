@@ -68,7 +68,7 @@ All services are running and healthy:
 
 ## 🔗 Access Information
 
-**URL**: https://cfelipe-.42.fr:4443
+**URL**: https://tforster.42.fr:4443
 **Admin**: wpmaster
 **User**: content_editor
 
@@ -76,7 +76,7 @@ All services are running and healthy:
 
 1. **Port 4443 vs 443**: Running on 4443 due to rootless Docker. Change to 443 for production with proper privileges.
 
-2. **Domain Resolution**: Add `127.0.0.1 cfelipe-.42.fr` to `/etc/hosts`
+2. **Domain Resolution**: Add `127.0.0.1 tforster.42.fr` to `/etc/hosts`
 
 3. **SSL Certificate**: Self-signed, browser will show warning (expected in development)
 
@@ -130,4 +130,4 @@ The infrastructure is ready for demonstration and evaluation.
 
 ---
 Generated: $(date)
-User: cfelipe-
+User: tforster

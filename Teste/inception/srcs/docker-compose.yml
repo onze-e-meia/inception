@@ -8,7 +8,7 @@ services:
     networks:
       - inception-network
     volumes:
-      - mariadb-data:/var/lib/mysql
+      - ${DATA_PATH}/mariadb:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -31,7 +31,7 @@ services:
     networks:
       - inception-network
     volumes:
-      - wordpress-data:/var/www/html
+      - ${DATA_PATH}/wordpress:/var/www/html
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
@@ -64,9 +64,9 @@ services:
     networks:
       - inception-network
     volumes:
-      - wordpress-data:/var/www/html:ro
+      - ${DATA_PATH}/wordpress:/var/www/html:ro
     ports:
-      - "4443:443"
+      - ""
     depends_on:
       wordpress:
         condition: service_healthy
@@ -77,9 +77,9 @@ services:
       timeout: 5s
       retries: 5
 
-volumes:
-  mariadb-data:
-  wordpress-data:
+# volumes:
+#   mariadb-data:
+#   wordpress-data:
 
 networks:
   inception-network:

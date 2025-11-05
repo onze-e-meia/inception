@@ -1,5 +1,5 @@
 # Inception - Docker Infrastructure Project
-# Author: cfelipe-
+# Author: tforster
 
 .PHONY: all up build down clean fclean re logs ps status help
 
@@ -14,7 +14,7 @@ up: build
 	@echo "Starting containers..."
 	@docker compose -f srcs/docker-compose.yml up -d
 	@echo "Inception infrastructure is up!"
-	@echo "Access WordPress at: https://cfelipe-.42.fr"
+	@echo "Access WordPress at: https://tforster.42.fr"
 
 # Build Docker images
 build:
