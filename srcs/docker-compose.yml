@@ -1,0 +1,112 @@
+services:
+  mariadb:
+    container_name: mariadb
+    build:
+      context: ./services/mariadb
+      dockerfile: Dockerfile
+    image: mariadb:inception
+    networks:
+      - inception-network
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+    secrets:
+      - mysql_root_pass
+      - mysql_pass
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -p$(cat /run/secrets/mysql_root_pass)"]
+      start_period: 30s
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  wordpress:
+    container_name: wordpress
+    build:
+      context: ./services/wordpress
+      dockerfile: Dockerfile
+    image: wordpress:inception
+    networks:
+      - inception-network
+    volumes:
+      - wordpress-data:/var/www/html
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - WP_URL=${WP_URL}
+      - WP_TITLE=${WP_TITLE}
+      - WP_ADMIN_USER=${WP_ADMIN_USER}
+      - WP_ADMIN_EMAIL=${WP_ADMIN_EMAIL}
+      - WP_USER=${WP_USER}
+      - WP_USER_EMAIL=${WP_USER_EMAIL}
+    secrets:
+      - mysql_pass
+      - wp_admin_pass
+      - wp_user_pass
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pidof php-fpm8.2"]
+      start_period: 30s
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  nginx:
+    container_name: nginx
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile
+    image: nginx:inception
+    networks:
+      - inception-network
+    volumes:
+      - wordpress-data:/var/www/html:ro
+    ports:
+      - "443:443"
+    depends_on:
+      wordpress:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pidof nginx"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mariadb-data:
+    name: mariadb
+    driver: local
+    driver_opts:
+      type: none
+      device: ${DATA_PATH}/mariadb
+      o: bind
+
+  wordpress-data:
+    name: wordpress
+    driver: local
+    driver_opts:
+      type: none
+      device: ${DATA_PATH}/wordpress
+      o: bind
+
+networks:
+  inception-network:
+    driver: bridge
+    name: inception-network
+
+secrets:
+  mysql_root_pass:
+    file: ./secrets/mysql_root_pass.txt
+  mysql_pass:
+    file: ./secrets/mysql_pass.txt
+  wp_admin_pass:
+    file: ./secrets/wp_admin_pass.txt
+  wp_user_pass:
+    file: ./secrets/wp_user_pass.txt
